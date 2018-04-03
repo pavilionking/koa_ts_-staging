@@ -1,3 +1,3 @@
-# wlj-user-gather
+# koa staging in typescript
 
-王老吉微信活动全用户CURD
+koa typesciprt 脚手架
