@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "es2015",
+    "noImplicitAny": false,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "sourceMap": true,
+    "outDir": "build",
+    "watch": false,
+    "baseUrl": ".",
+    "paths": {
+       "config/*": ["config/*"],
+       "src/*": ["src/*"]
+    }
+  },
+  "include": [
+      "src/**/*",
+      "config/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "logs",
+    "**/*.spec.ts"
+  ]
+}

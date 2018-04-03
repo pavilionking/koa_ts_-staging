@@ -1,0 +1,30 @@
+{
+	"apps" : [{
+		"name": "usr-gather",
+		"script": "/var/www/user-gather/current/src/app.ts",
+		"exec_mode": "fork",
+		"watch": false,
+		"out_file": "/var/www/user-gather/logs/app.log",
+		"error_file": "/var/www/user-gather/logs/err.log",
+		"combine_logs": true,
+		"listen_timeout": 8000,
+		"kill_timeout": 1600,
+		"env": {
+			"NODE_ENV": "production"
+		}
+	}],
+
+	"deploy" : {
+		"production" : {
+			"user" : "root",   // 服务器用户名
+			"host" : "139.219.188.130",  // 服务器IP,可多个
+			"ref"  : "origin/master", // 分支
+			"repo" : "http://formalhaut:lshmiluw123123@git.tuoxi-tech.com/Tuoxi-GZ/wlj-user-gather.git",
+			"path" : "/var/www/user-gather",       // 服务器源码目录，可自定义
+			"post-deploy" : "cd /var/www/user-gather/current && git pull && pm2 startOrRestart config/pm2.prod.config.json --env production",  // 现在的启动目录
+			"env"  : {
+				"NODE_ENV": "production"
+			}
+		}
+	}
+}
